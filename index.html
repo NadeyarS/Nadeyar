@@ -3,47 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadeyar Duhoky
-    07504314239
-    exploit</title>
+  <title>Nadeyar Duhoky - Exploit Host</title>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: linear-gradient(135deg, #0d0d1a, #16213e, #0f3460);
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        color: #ffffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 5px;
+        color: #00adb5;
+        letter-spacing: 1px;
+    }
+
+    h3#UA {
+        font-size: 14px;
+        color: #a0aab2;
+        margin-bottom: 15px;
+        font-weight: normal;
+    }
+
+    hr {
+        width: 80%;
+        max-width: 400px;
+        border: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        margin-bottom: 25px;
+    }
+
+    .btn-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 15px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    #kernel-options {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #kernel-options label {
+        cursor: pointer;
+        font-weight: 600;
+        color: #eeeeee;
+    }
+
+    #jeilbrek {
+        background: #00adb5;
+        color: #fff;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 173, 181, 0.4);
+    }
+
+    #jeilbrek:hover {
+        background: #00939a;
+        transform: translateY(-2px);
+    }
+
+    .autoJb {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    .main-layout {
+        width: 100%;
+        max-width: 450px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .media-box {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        max-height: 200px;
+    }
+
+    .media-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #console {
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        font-family: monospace;
+        font-size: 13px;
+        color: #00ffcc;
+        height: 120px;
+        overflow-y: auto;
+        text-align: left;
+        direction: ltr;
+    }
+  </style>
   <link rel="stylesheet" href="includes/style.css">
 </head>
 <body>
 
-  <h1>Nadeyar Duhoky
-    07504314239
-    Exploit</h1>
+  <h1>Nadeyar Duhoky<br><span style="font-size: 18px; color: #eeeeee;">07504314239</span><br>Exploit</h1>
   <h3 id="UA">Running on:</h3>
 
   <hr>
 
   <div class="btn-container">
     <form id="kernel-options">
-      <input type="radio" name="kernel" id="netctrl-exploit" value="netctrl">
-      <label for="netctrl-exploit">NetCtrl</label>
-      <input type="radio" name="kernel" id="lapse-exploit" value="lapse">
-      <label for="lapse-exploit">Lapse</label>
+      <div>
+        <input type="radio" name="kernel" id="netctrl-exploit" value="netctrl">
+        <label for="netctrl-exploit">NetCtrl</label>
+      </div>
+      <div>
+        <input type="radio" name="kernel" id="lapse-exploit" value="lapse">
+        <label for="lapse-exploit">Lapse</label>
+      </div>
     </form>
     <button id="jeilbrek">Jeilbrek</button>
     <div class="autoJb">
-      <label for="autoJbInput" id="autoJbLabel">Auto Jailbreak</label>
       <input class="mt-2" id="autoJbInput" type="checkbox">
+      <label for="autoJbInput" id="autoJbLabel">Auto Jailbreak</label>
     </div>
   </div>
 
   <div class="main-layout">
     <div class="media-box">
-      <img src="includes/cat.jpg" alt="A cat staring at you">
-    </div>
-
-    <pre id="console">Ready. Awaiting execution...
-  </pre>
-
-
-  </div>
-
-  <script src="src/main.js"></script>
-  <script src="includes/script.js"></script>
-</body>
-
-</html>
