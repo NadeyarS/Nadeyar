@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadeyar Duhoky
-    07504314239
-    exploit</title>
+  <title>Nadeyar Duhoky - Exploit Host</title>
   <style>
     * {
         margin: 0;
@@ -44,11 +42,44 @@
 
     hr {
         width: 80%;
-        max-width: 400px;
+        max-width: 450px;
         border: 0;
         height: 1px;
         background: #424242 !important;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* کودی تێکستێ جووڵاو (Ticker) */
+    .ticker-container {
+        width: 100%;
+        max-width: 450px;
+        background-color: #1e1e1e !important;
+        border: 1px solid #333 !important;
+        border-radius: 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+        padding: 8px 0;
+    }
+
+    .ticker-text {
+        display: inline-block;
+        padding-left: 100%;
+        animation: ticker 18s linear infinite;
+        color: #00e676 !important;
+        font-size: 13px;
+        font-weight: 600;
+        text-shadow: 0 0 5px rgba(0, 230, 118, 0.3);
+    }
+
+    @keyframes ticker {
+        0% {
+            transform: translate3d(0, 0, 0);
+        }
+        100% {
+            transform: translate3d(-100%, 0, 0);
+        }
     }
 
     .btn-container {
@@ -157,6 +188,11 @@
 
   <hr>
 
+  <!-- تێکستێ جووڵاو (Ticker) -->
+  <div class="ticker-container">
+    <div class="ticker-text">خێر هاتن بۆ ماڵپەڕێ هۆستێ Nadeyar Duhoky - بۆ پشته‌ڤانی و پەیوەندی: 07504314239</div>
+  </div>
+
   <div class="btn-container">
     <form id="kernel-options">
       <div>
@@ -171,3 +207,19 @@
     <button id="jeilbrek">Jeilbrek</button>
     <div class="autoJb">
       <input class="mt-2" id="autoJbInput" type="checkbox">
+      <label for="autoJbInput" id="autoJbLabel">Auto Jailbreak</label>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <div class="media-box">
+      <img src="includes/cat.jpg" alt="A cat staring at you">
+    </div>
+
+    <pre id="console">Ready. Awaiting execution...</pre>
+  </div>
+
+  <script src="src/main.js"></script>
+  <script src="includes/script.js"></script>
+</body>
+</html>
