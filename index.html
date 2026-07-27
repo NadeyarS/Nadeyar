@@ -12,7 +12,7 @@
     }
 
     body {
-        background-color: #0b0f19 !important;
+        background-color: #050b14 !important;
         color: #e0e0e0 !important;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         min-height: 100vh;
@@ -23,21 +23,36 @@
         padding: 20px;
     }
 
+    /* شێوازێ ناڤ و ژمارەی وەک نێۆنێ مەزن */
     h1 {
-        font-size: 24px;
+        font-size: 26px;
         text-align: center;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         color: #00e5ff !important;
-        text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
-        line-height: 1.4;
+        text-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.4);
+        line-height: 1.3;
+        font-weight: 800;
+    }
+
+    .phone-title {
+        font-size: 22px;
+        color: #00e5ff !important;
+        text-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.4);
+        display: block;
+        margin: 5px 0 10px 0;
+        font-weight: 800;
+        letter-spacing: 1px;
     }
 
     h3#UA {
-        font-size: 14px;
+        font-size: 13px;
         color: #94a3b8 !important;
         margin-bottom: 12px;
         font-weight: normal;
         text-align: center;
+        max-width: 450px;
+        word-break: break-all;
+        padding: 0 10px;
     }
 
     hr {
@@ -45,7 +60,7 @@
         max-width: 450px;
         border: 0;
         height: 1px;
-        background: #1e293b !important;
+        background: linear-gradient(90deg, transparent, #00e5ff, transparent) !important;
         margin-bottom: 15px;
     }
 
@@ -53,7 +68,7 @@
     .ticker-container {
         width: 100%;
         max-width: 450px;
-        background-color: #111827 !important;
+        background-color: rgba(17, 24, 39, 0.8) !important;
         border: 1px solid #1f2937 !important;
         border-radius: 8px;
         overflow: hidden;
@@ -70,7 +85,7 @@
         color: #00e676 !important;
         font-size: 13px;
         font-weight: 600;
-        text-shadow: 0 0 5px rgba(0, 230, 118, 0.3);
+        text-shadow: 0 0 5px rgba(0, 230, 118, 0.4);
     }
 
     @keyframes ticker {
@@ -83,7 +98,7 @@
     }
 
     .btn-container {
-        background-color: #111827 !important;
+        background-color: rgba(17, 24, 39, 0.9) !important;
         border: 1px solid #1f2937 !important;
         padding: 20px;
         border-radius: 15px;
@@ -114,7 +129,7 @@
         padding: 12px 30px;
         font-size: 16px;
         font-weight: bold;
-        border-radius: 8px;
+        border-radius: 10px;
         cursor: pointer;
         width: 100%;
         transition: 0.3s;
@@ -132,7 +147,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         font-size: 14px;
     }
 
@@ -148,14 +163,15 @@
         gap: 15px;
     }
 
-    /* لێرە قەبارە و بەرزییا وێنەی مەزنتر هاتییە چێکرن */
+    /* قەبارە و بەرزییا وێنەی مەزن و سەرنجڕاکێش */
     .media-box {
         width: 100%;
         max-height: 320px; 
-        border-radius: 12px;
+        border-radius: 15px;
         overflow: hidden;
         border: 2px solid #1f2937 !important;
         background-color: #111827;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
     .media-box img {
@@ -183,9 +199,9 @@
 </head>
 <body>
 
-  <h1>Nadeyar Duhoky<br>
-    <span style="font-size: 16px; color: #00e5ff;">07504314239</span><br>
-    Exploit</h1>
+  <h1>Nadeyar Duhoky</h1>
+  <span class="phone-title">07504314239</span>
+  <h1 style="font-size: 20px; margin-top: -5px;">Exploit</h1>
   
   <h3 id="UA">Running on:</h3>
 
@@ -210,13 +226,13 @@
     <button id="jeilbrek">Jeilbrek</button>
     <div class="autoJb">
       <input class="mt-2" id="autoJbInput" type="checkbox">
-      <label for="autoJbInput" id="autoJbLabel">Auto Jailbreak</label>
+      <label for="autoJbInput" id="autoJbLabel">Executing</label>
     </div>
   </div>
 
   <div class="main-layout">
     <div class="media-box">
-      <img src="includes/cat.jpg" alt="A cat staring at you">
+      <img src="includes/cat.jpg" alt="Nadeyar Electronics">
     </div>
 
     <pre id="console">Ready. Awaiting execution...</pre>
