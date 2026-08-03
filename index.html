@@ -2,57 +2,138 @@
 <html lang="en" manifest="cache.manifest">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>PS4 CSSFontFace Exploit</title>
-    <link rel="stylesheet" href="includes/style.css" />
 
-    <!-- ئەڤ کۆدە دێ ب زۆری هەمی تشتان ڤەشێریت ژبلی دوگمەی و دوگمەی ئێخیتە نیڤا شاشەیێ -->
     <style>
-      #console,
-      #UA,
-      #kernel-options,
-      .logo,
-      #status,
-      .auto-panel,
-      #countdown {
+      /* ڤەشارتنا پشکێن شاشەیا ڕەش و هەلبژارتنێن نەپێدڤی دا کو دیار نەبن */
+      #console, #UA, #kernel-options {
         display: none !important;
       }
 
       body, html {
         height: 100%;
         margin: 0;
+        background-color: #15191e; /* رەنگێ تاریک یێ پاشبنەمایێ */
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #111; /* رەنگێ ڕەش بۆ پاشبنەمایێ */
       }
 
       .foreground {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* ستایلێ سەردێرێ پەیجێ */
+      .logo h1 {
+        font-size: 26px;
+        margin: 0 0 5px 0;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      }
+
+      .logo p {
+        color: #00d2ff;
+        margin: 0 0 35px 0;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+
+      /* ستایلێ دوگمەیێ بازنەیی یێ JAILBREAK */
+      .jb-button {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        background: transparent;
+        border: 3px solid #00d2ff;
+        box-shadow: 0 0 25px #00d2ff, inset 0 0 25px #00d2ff;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.2s ease;
+        margin-bottom: 25px;
       }
-      
-      /* دڵنیابوون ژ مانەڤەیا دوگمەی */
-      #jeilbrek {
-        display: block !important;
+
+      /* ل دەمێ کلیک کرنێ ل سەر دوگمەی */
+      .jb-button:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 40px #00d2ff, inset 0 0 40px #00d2ff;
+        background: rgba(0, 210, 255, 0.15);
+      }
+
+      /* ئایکۆنێ کارەبایێ (Power Icon) */
+      .power-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+        /* کێشانا ئایکۆنێ ب ڕێکا SVG بێ پێدڤیبوون ب وێنەیەکێ دەرەکی */
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%2300d2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>');
+        background-size: cover;
+      }
+
+      .button-text {
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        text-shadow: 0 0 5px #00d2ff;
+      }
+
+      /* ستایلێ نڤیسا READY یێ بن دوگمەی */
+      .status {
+        color: #00d2ff;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        text-transform: uppercase;
+      }
+
+      /* ستایلێ بەشێ AUTO JB */
+      .auto-panel {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #ccc;
+        letter-spacing: 1px;
+      }
+
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .checkbox-container input {
+        margin-right: 8px;
+        width: 18px;
+        height: 18px;
+        accent-color: #00d2ff;
+      }
+
+      .countdown {
+        margin-top: 10px;
+        color: #ff4757;
+        font-size: 14px;
       }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <!-- Background Console -->
-      <pre id="console">Ready...
-Waiting for execution...</pre>
-
-      <!-- Hidden Elements (Required by script.js) -->
+      
+      <!-- پشکێن پێدڤی بۆ جافاسکریپتی کو هاتینە ڤەشارتن ب CSS -->
+      <pre id="console">Ready... Waiting for execution...</pre>
       <h3 id="UA"></h3>
-
       <form id="kernel-options">
         <input type="radio" id="netctrl-exploit" name="kernel" value="netctrl" checked />
         <label for="netctrl-exploit">NetCtrl</label>
@@ -60,8 +141,9 @@ Waiting for execution...</pre>
         <label for="lapse-exploit">Lapse</label>
       </form>
 
-      <!-- Foreground -->
+      <!-- پشکا دیزاینا سەرەکی (UI) -->
       <div class="foreground">
+        
         <header class="logo">
           <h1>PS4 CSSFontFace-Exploit</h1>
           <p>by ntfargo and thanks to him</p>
@@ -69,26 +151,25 @@ Waiting for execution...</pre>
 
         <button id="jeilbrek" class="jb-button" type="button">
           <span class="power-icon"></span>
-          <span class="button-text"> JAILBREAK </span>
+          <span class="button-text">JAILBREAK</span>
         </button>
 
         <div id="status" class="status">READY</div>
 
-        <!-- Auto Jailbreak -->
         <div class="auto-panel">
           <label class="checkbox-container">
             <input id="autoJbInput" type="checkbox" />
-            <span class="checkmark"></span>
             <span class="auto-title"> AUTO JB </span>
           </label>
-          <span id="autoJbLabel"></span>
+          <span id="autoJbLabel" style="display:none;"></span>
         </div>
 
-        <!-- Countdown -->
-        <div id="countdown" class="countdown">Auto JB in 5...</div>
+        <div id="countdown" class="countdown" style="display:none;">Auto JB in 5...</div>
+        
       </div>
     </div>
 
+    <!-- گریدانا فایلێن جافاسکریپت یێن بنەڕەتی -->
     <script src="src/main.js"></script>
     <script src="includes/script.js"></script>
   </body>
