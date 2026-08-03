@@ -1,10 +1,18 @@
 CACHE MANIFEST
-# v4.0 - Minimal Cache Solution
+# v6.0 - Full Offline GoldHEN Support
 
 CACHE:
 index.html
-src/main.js
 includes/script.js
+src/main.js
+src/loader.js
+src/lapse.js
+src/netctrl.js
+src/misc.js
+src/payload.bin
+src/ps4/constants.js
+src/ps4/kernel.js
+src/ps4/offsets.mjs
 
 NETWORK:
 *
