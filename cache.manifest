@@ -1,15 +1,19 @@
 CACHE MANIFEST
-# v6.0 - Full Offline GoldHEN Support
+# v8.0 - Full Offline Fix with Userland & Workers
 
 CACHE:
 index.html
 includes/script.js
-src/main.js
-src/loader.js
+src/userland.mjs
 src/lapse.js
-src/netctrl.js
+src/loader.js
+src/main.js
 src/misc.js
+src/netctrl.js
 src/payload.bin
+src/utils.mjs
+src/worker.js
+src/workers.js
 src/ps4/constants.js
 src/ps4/kernel.js
 src/ps4/offsets.mjs
