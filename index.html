@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" manifest="cache.manifest">
   <head>
@@ -16,8 +15,8 @@
 
   <body>
     <div class="container">
-      <!-- Background Console -->
-      <pre id="console">
+      <!-- Background Console (Hidden) -->
+      <pre id="console" class="hidden">
 Ready...
 Waiting for execution...</pre
       >
@@ -42,7 +41,7 @@ Waiting for execution...</pre
 
       <!-- Foreground -->
       <div class="foreground">
-        <header class="logo">
+        <header class="logo hidden">
           <h1>PS4 CSSFontFace-Exploit</h1>
 
           <p>by ntfargo and thanks to him</p>
@@ -54,11 +53,11 @@ Waiting for execution...</pre
           <span class="button-text"> JAILBREAK </span>
         </button>
 
-        <div id="status" class="status">READY</div>
+        <div id="status" class="status hidden">READY</div>
 
-        <!-- Auto Jailbreak -->
+        <!-- Auto Jailbreak (Hidden) -->
 
-        <div class="auto-panel">
+        <div class="auto-panel hidden">
           <label class="checkbox-container">
             <input id="autoJbInput" type="checkbox" />
 
@@ -66,8 +65,6 @@ Waiting for execution...</pre
 
             <span class="auto-title"> AUTO JB </span>
           </label>
-
-          <!-- Hidden, tetap dibutuhkan script.js -->
 
           <span id="autoJbLabel" class="hidden"></span>
         </div>
