@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" manifest="cache.manifest">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -157,50 +157,8 @@
       </div>
     </div>
 
-    <!-- كۆدێ جافاسكریپت یێ بنەڕەتی -->
+    <!-- گریدانا فایلێن جافاسکریپت یێن بنەڕەتی -->
     <script src="src/main.js"></script>
     <script src="includes/script.js"></script>
-
-    <!-- كۆدێ خەزنكرنا ئۆفلاین (Offline Cache System) -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          const swCode = `
-            const CACHE_NAME = 'ps4-jb-v1';
-            const urlsToCache = [
-              './',
-              './index.html',
-              './src/main.js',
-              './includes/script.js'
-            ];
-
-            self.addEventListener('install', event => {
-              event.waitUntil(
-                caches.open(CACHE_NAME).then(cache => {
-                  return cache.addAll(urlsToCache);
-                })
-              );
-            });
-
-            self.addEventListener('fetch', event => {
-              event.respondWith(
-                caches.match(event.request).then(response => {
-                  return response || fetch(event.request);
-                })
-              );
-            });
-          `;
-
-          const blob = new Blob([swCode], { type: 'application/javascript' });
-          const blobURL = URL.createObjectURL(blob);
-
-          navigator.serviceWorker.register(blobURL).then(function(reg) {
-            console.log('Offline Cache Ready!');
-          }).catch(function(err) {
-            console.log('Cache Error:', err);
-          });
-        });
-      }
-    </script>
   </body>
 </html>
