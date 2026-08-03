@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" manifest="cache.manifest">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Nadeyar Duhoky</title>
 
     <style>
-      /* ڤەشارتنا پشکێن شاشەیا ڕەش و هەلبژارتنێن نەپێدڤی دا کو دیار نەبن */
+      /* ڤەشارتنا پشکێن شاشەیا ڕەش و هەلبژارتنێن نەپێدڤی */
       #console, #UA, #kernel-options {
         display: none !important;
       }
@@ -14,7 +14,7 @@
       body, html {
         height: 100%;
         margin: 0;
-        background-color: #15191e; /* رەنگێ تاریک یێ پاشبنەمایێ */
+        background-color: #15191e;
         color: #fff;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         display: flex;
@@ -30,7 +30,6 @@
         text-align: center;
       }
 
-      /* ستایلێ سەردێرێ پەیجێ */
       .logo h1 {
         font-size: 26px;
         margin: 0 0 5px 0;
@@ -45,7 +44,6 @@
         letter-spacing: 1px;
       }
 
-      /* ستایلێ دوگمەیێ بازنەیی یێ JAILBREAK */
       .jb-button {
         width: 170px;
         height: 170px;
@@ -63,19 +61,16 @@
         margin-bottom: 25px;
       }
 
-      /* ل دەمێ کلیک کرنێ ل سەر دوگمەی */
       .jb-button:active {
         transform: scale(0.95);
         box-shadow: 0 0 40px #00d2ff, inset 0 0 40px #00d2ff;
         background: rgba(0, 210, 255, 0.15);
       }
 
-      /* ئایکۆنێ کارەبایێ (Power Icon) */
       .power-icon {
         width: 50px;
         height: 50px;
         margin-bottom: 12px;
-        /* کێشانا ئایکۆنێ ب ڕێکا SVG بێ پێدڤیبوون ب وێنەیەکێ دەرەکی */
         background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" stroke="%2300d2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>');
         background-size: cover;
       }
@@ -88,7 +83,6 @@
         text-shadow: 0 0 5px #00d2ff;
       }
 
-      /* ستایلێ نڤیسا READY یێ بن دوگمەی */
       .status {
         color: #00d2ff;
         font-weight: bold;
@@ -98,7 +92,6 @@
         text-transform: uppercase;
       }
 
-      /* ستایلێ بەشێ AUTO JB */
       .auto-panel {
         display: flex;
         align-items: center;
@@ -130,8 +123,6 @@
 
   <body>
     <div class="container">
-      
-      <!-- پشکێن پێدڤی بۆ جافاسکریپتی کو هاتینە ڤەشارتن ب CSS -->
       <pre id="console">Ready... Waiting for execution...</pre>
       <h3 id="UA"></h3>
       <form id="kernel-options">
@@ -141,9 +132,7 @@
         <label for="lapse-exploit">Lapse</label>
       </form>
 
-      <!-- پشکا دیزاینا سەرەکی (UI) -->
       <div class="foreground">
-        
         <header class="logo">
           <h1>07504314239</h1>
           <p>by NADEYAR DUHOKY</p>
@@ -165,12 +154,53 @@
         </div>
 
         <div id="countdown" class="countdown" style="display:none;">Auto JB in 5...</div>
-        
       </div>
     </div>
 
-    <!-- گریدانا فایلێن جافاسکریپت یێن بنەڕەتی -->
+    <!-- كۆدێ جافاسكریپت یێ بنەڕەتی -->
     <script src="src/main.js"></script>
     <script src="includes/script.js"></script>
+
+    <!-- كۆدێ خەزنكرنا ئۆفلاین (Offline Cache System) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          const swCode = `
+            const CACHE_NAME = 'ps4-jb-v1';
+            const urlsToCache = [
+              './',
+              './index.html',
+              './src/main.js',
+              './includes/script.js'
+            ];
+
+            self.addEventListener('install', event => {
+              event.waitUntil(
+                caches.open(CACHE_NAME).then(cache => {
+                  return cache.addAll(urlsToCache);
+                })
+              );
+            });
+
+            self.addEventListener('fetch', event => {
+              event.respondWith(
+                caches.match(event.request).then(response => {
+                  return response || fetch(event.request);
+                })
+              );
+            });
+          `;
+
+          const blob = new Blob([swCode], { type: 'application/javascript' });
+          const blobURL = URL.createObjectURL(blob);
+
+          navigator.serviceWorker.register(blobURL).then(function(reg) {
+            console.log('Offline Cache Ready!');
+          }).catch(function(err) {
+            console.log('Cache Error:', err);
+          });
+        });
+      }
+    </script>
   </body>
 </html>
