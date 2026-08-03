@@ -1,16 +1,9 @@
 CACHE MANIFEST
-# v3.0 - Fixed Missing Files
+# v4.0 - Minimal Cache Solution
 
 CACHE:
 index.html
-src/lapse.js
-src/loader.js
 src/main.js
-src/misc.js
-src/netctrl.js
-src/payload.bin
-src/utils.mjs
-src/worker.js
 includes/script.js
 
 NETWORK:
